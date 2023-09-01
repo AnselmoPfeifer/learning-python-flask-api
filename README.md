@@ -13,5 +13,5 @@ to create / update and delete tasks, the data will be persisted on JSON file.
         --data '{
                 "title": "bla",
                 "description": "bla-blup"
-            }
+            }'
 ```

@@ -25,6 +25,17 @@ def update_data_file(content):
 
 
 @app.route('/tasks', methods=['GET'])
+def get_tasks():
+    """
+    Get all tasks
+    """
+
+    return jsonify(
+        get_data_file()
+    )
+
+
+@app.route('/task', methods=['GET'])
 def get_task():
     """
     Get task by id (request.arg)
@@ -33,7 +44,7 @@ def get_task():
         task_id = int(request.args.get('id'))
     else:
         task_id = None
-        
+
     tasks = get_data_file()
     for task in tasks:
         if task['id'] == task_id:
@@ -46,7 +57,7 @@ def get_task():
     )
 
 
-@app.route('/tasks', methods=['PUT'])
+@app.route('/task', methods=['PUT'])
 def create_task():
     """
     Add new task using this payload
